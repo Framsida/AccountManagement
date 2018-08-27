@@ -1,0 +1,21 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Intellij #
+.idea
+*.iml
+*.log
+
+# logback
+logback.out.xml
+
+/backend/.idea/
+/backend/target/
+/backend/src/main/resources/application.properties
+/frontend/.idea/
+/frontend/node_modules/
+/fronend/.babelrc
