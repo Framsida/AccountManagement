@@ -5,7 +5,7 @@
                 <b-button size="sm" class="mr-1" variant="primary">
                     Edit
                 </b-button>
-                <b-button @click="deleteAccount(items.accountNumber)" size="sm" class="mr-1" variant="danger">
+                <b-button @click="deleteAccount(row.item.index, row.item.accountNumber)" size="sm" class="mr-1" variant="danger">
                     Delete
                 </b-button>
             </template>
@@ -43,27 +43,7 @@
                         edit: 'test'
                     }
                 ],
-                items: [
-                    {
-                        accountID:'001',
-                        first_name: 'Joe',
-                        last_name: 'Blogs',
-                        email: 'JoeBlogs@gmail.com',
-                        edit: '<b-button>TEST</b-button>'
-                    },
-                    {
-                        accountID:'002',
-                        first_name: 'Steve',
-                        last_name: 'Steverson',
-                        email: 'Steve@gmail.com'
-                    },
-                    {
-                        accountID:'003',
-                        first_name: 'Kate',
-                        last_name: 'Kat',
-                        email: 'Kate@gmail.com'
-                    }
-                ]
+                items: []
             }
         },
         mounted() {
@@ -71,16 +51,23 @@
                 .get('http://localhost:8081/accounts/all')
                 .then(response => {
                     this.items = response.data;
-                    console.log(response.data);
-                    console.log(response.status);
-                    console.log(response.headers);
-                    console.log('mounted');
                 }).catch(error => {
                     console.log(error)
             })
         },
         methods: {
-            deleteAccount(accountNumber) {
+            deleteAccount(index, accountNumber) {
+                console.log(accountNumber);
+                axios
+                    .delete('http://localhost:8081/accounts/delete/'+accountNumber)
+                    .then(response => {
+                        if(response.status === 200) {
+                            this.items.splice(index, 1)
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
             }
         }
     }

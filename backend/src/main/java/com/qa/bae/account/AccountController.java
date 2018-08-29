@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/accounts")
+@CrossOrigin(origins = "http://localhost:8080")
 public class AccountController {
     private AccountRepository accountRepository;
 
@@ -20,35 +21,38 @@ public class AccountController {
         return "index";
     }
 
-    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/all")
     public List<Account> getAll() {
         return this.accountRepository.findAll();
 
     }
 
-    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/{accountNumber}")
     public List<Account> getByAccountNumber(@PathVariable("accountNumber") int accountNumber) {
         return this.accountRepository.findByAccountNumber(accountNumber);
     }
 
-    @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping("/")
-    public void insert(@RequestBody Account account) {
+    public String insert(@RequestBody Account account) {
         this.accountRepository.insert(account);
+        return "{\"message\": \"Success\"}";
+
     }
 
     @PutMapping
-    public void update(@RequestBody Account account) {
+    public String update(@RequestBody Account account) {
         this.accountRepository.save(account);
+        return "{\"message\": \"Success\"}";
+
     }
 
     @DeleteMapping("/delete/{accountNumber}")
-    public void delete(@PathVariable("accountNumber") int id) {
+    public String delete(@PathVariable("accountNumber") int id) {
 
         List<Account> accounts = this.accountRepository.findByAccountNumber(id);
         this.accountRepository.deleteAll(accounts);
+
+        return "{\"message\": \"Success\"}";
 
     }
 

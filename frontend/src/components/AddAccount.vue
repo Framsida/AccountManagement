@@ -73,12 +73,13 @@
                 event.preventDefault();
                 axios.post('http://localhost:8081/accounts/', this.account)
                     .then(response => {
-                        console.log(response)
+                        if(response.status === 200) {
+                            this.$router.push('/');
+                        }
                     })
                     .catch(error => {
                         console.log(error)
                     });
-                console.log(this.account.accountNumber)
             }
         }
     }

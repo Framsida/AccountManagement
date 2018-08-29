@@ -1,16 +1,16 @@
 <template>
     <b-navbar toggleable="md" type="dark" class="nav-background">
         <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-        <b-navbar-brand href="#">NavBar Title</b-navbar-brand>
+        <b-navbar-brand href="#">Account Manager</b-navbar-brand>
         <b-collapse is-nav id="nav_collapse">
             <b-navbar-nav>
                 <b-nav-item href="#">
-                    <router-link to="/">
+                    <router-link to="/" class="nav-item">
                         View Accounts
                     </router-link>
                 </b-nav-item>
                 <b-nav-item href="#">
-                    <router-link to="add">
+                    <router-link to="add" class="nav-item">
                         Add Accounts
                     </router-link>
                 </b-nav-item>
@@ -28,6 +28,9 @@
 <style scoped>
     .nav-background {
         background-color: dimgray;
+    }
+    .nav-item {
+        color: aliceblue;
     }
 
 </style>
