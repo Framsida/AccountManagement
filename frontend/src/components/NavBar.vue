@@ -1,10 +1,10 @@
 <template>
     <b-navbar toggleable="md" type="dark" class="nav-background">
         <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-        <b-navbar-brand href="#">Account Manager</b-navbar-brand>
+        <b-navbar-brand>Account Manager</b-navbar-brand>
         <b-collapse is-nav id="nav_collapse">
             <b-navbar-nav>
-                <b-nav-item href="#">
+                <b-nav-item>
                     <router-link to="/" class="nav-item">
                         View Accounts
                     </router-link>
