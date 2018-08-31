@@ -87,8 +87,13 @@
                 this.toDelete = account;
                 this.indexToDelete = index;
             },
-            editAccount(account) {
-                this.$router.push('/edit/' + this.items[account].accountID);
+            editAccount(accountIndex) {
+                console.log((accountIndex));
+                console.log(this.items[accountIndex]);
+                this.$router.push({
+                    path: '/edit/' + this.items[accountIndex].id,
+                    params: this.items[accountIndex].accountNumber
+                });
             }
         }
     }

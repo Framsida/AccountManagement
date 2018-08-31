@@ -12,6 +12,7 @@
                                       required
                                       placeholder="Enter first name"
                                       v-model="account.firstName">
+
                         </b-form-input>
 
                 </b-form-group>
@@ -61,12 +62,35 @@
         name: "AddAccount",
         data() {
             return {
+                formInputs: [
+                    {
+                        id: "first_name",
+                        label: "First Name"
+                    },
+                    {
+                        id: "last_name",
+                        label: "Last Name"
+
+                    },
+                    {
+                        id: "email",
+                        label: "Email Address"
+
+                    },
+                    {
+                        id: "account_number",
+                        label: "Account Number"
+
+                    }
+
+                ],
                 account: {
                     accountNumber:'',
                     firstName: '',
                     lastName: '',
                     emailAddress: ''
                 }
+
             }
         },
         methods: {
@@ -86,6 +110,17 @@
                 event.preventDefault();
                 this.$router.push('/');
             }
+        },
+        mounted() {
+            
+            axios
+                .get(`http://localhost:8081/accounts/${accountID}`)
+                .then(response => {
+                    this.items = response.data;
+                }).catch(error => {
+                console.log(error)
+            })
+        },
         }
     }
 </script>

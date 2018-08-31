@@ -20,9 +20,10 @@ export default new Router({
             component: AddAccount
         },
         {
-            path:'/edit/*',
+            path:'/edit/:id',
             name: 'EditAccount',
-            component: EditAccount
+            component: EditAccount,
+            props: true
         }
     ]
 })

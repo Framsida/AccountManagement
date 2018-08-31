@@ -1,7 +1,6 @@
 package com.qa.bae.account;
 
 
-import org.springframework.data.mongodb.repository.Query;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -39,7 +38,7 @@ public class AccountController {
 
     }
 
-    @PutMapping
+    @PutMapping("/")
     public String update(@RequestBody Account account) {
         this.accountRepository.save(account);
         return "{\"message\": \"Success\"}";
@@ -55,10 +54,4 @@ public class AccountController {
         return "{\"message\": \"Success\"}";
 
     }
-
-    /*@GetMapping("/{id}")
-    public Account getById(@PathVariable("id") String id) {
-        //Account account = this.accountRepository.findById(id);
-        return null;
-    }*/
 }
