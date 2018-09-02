@@ -14,10 +14,6 @@
                         Add Accounts
                     </router-link>
                 </b-nav-item>
-                <b-nav-form>
-                    <b-form-input size="sm" type="text" paceholder="Search" class="mr-3"/>
-                    <b-button size="sm">Search</b-button>
-                </b-nav-form>
 
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
