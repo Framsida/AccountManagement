@@ -4,6 +4,7 @@ package com.qa.bae.account;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/accounts")
@@ -31,6 +32,11 @@ public class AccountController {
         return this.accountRepository.findByAccountNumber(accountNumber);
     }
 
+    @GetMapping("/id/{id}")
+    public Optional<Account> getByID(@PathVariable("id") String id) {
+        return this.accountRepository.findById(id);
+    }
+
     @PostMapping("/")
     public String insert(@RequestBody Account account) {
         this.accountRepository.insert(account);
@@ -46,10 +52,9 @@ public class AccountController {
     }
 
     @DeleteMapping("/delete/{accountNumber}")
-    public String delete(@PathVariable("accountNumber") int id) {
+    public String delete(@PathVariable("accountNumber") String id) {
 
-        List<Account> accounts = this.accountRepository.findByAccountNumber(id);
-        this.accountRepository.deleteAll(accounts);
+        this.accountRepository.deleteById(id);
 
         return "{\"message\": \"Success\"}";
 

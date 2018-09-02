@@ -115,9 +115,9 @@
         mounted() {
             console.log(this.$route.params.id);
             axios
-                .get(`http://localhost:8081/accounts/1001`)
+                .get('http://localhost:8081/accounts/id/'+ this.$route.params.id)
                 .then(response => {
-                    this.account = response.data[0];
+                    this.account = response.data;
                 }).catch(error => {
                 console.log(error)
             });

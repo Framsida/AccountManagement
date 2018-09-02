@@ -47,7 +47,7 @@
                     .signInWithEmailAndPassword(this.email, this.password)
                     .then(
                         user => {
-                            alert('You are now logged in')
+                            this.$router.push('/');
                         },
                         error => {
                             alert('Something went wrong' + error.message)

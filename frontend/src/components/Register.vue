@@ -53,7 +53,7 @@
                     .createUserWithEmailAndPassword(this.email, this.password)
                     .then(
                         user => {
-                            alert('User created')
+                            this.$router.push('/login');
                         },
                         error => {
                             alert('Something went wrong' + error.message)
