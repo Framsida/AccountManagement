@@ -18,5 +18,5 @@ logback.out.xml
 /backend/src/main/resources/application.properties
 /frontend/.idea/
 /frontend/node_modules/
-/fronend/.babelrc
-/fronend/src/firbaseConfig.js
+/frontend/.babelrc
+/frontend/src/firbaseConfig.js
