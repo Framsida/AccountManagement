@@ -3,9 +3,11 @@ import Router from 'vue-router'
 import AccountsList from '../components/AccountsList.vue'
 import AddAccount from '../components/AddAccount.vue'
 import EditAccount from '../components/EditAccount.vue'
+import Login from '../components/Login.vue'
+import Register from '../components/Register.vue'
 
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
     routes: [
@@ -24,6 +26,16 @@ export default new Router({
             name: 'EditAccount',
             component: EditAccount,
             props: true
+        },
+        {
+            path:'/login',
+            name: 'Login',
+            component: Login
+        },
+        {
+            path:'/register',
+            name: 'Register',
+            component: Register
         }
     ]
 })

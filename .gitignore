@@ -19,3 +19,4 @@ logback.out.xml
 /frontend/.idea/
 /frontend/node_modules/
 /fronend/.babelrc
+/fronend/src/firbaseConfig.js

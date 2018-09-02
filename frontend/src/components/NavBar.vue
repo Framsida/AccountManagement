@@ -5,13 +5,25 @@
         <b-collapse is-nav id="nav_collapse">
             <b-navbar-nav>
                 <b-nav-item>
-                    <router-link to="/" class="nav-item">
+                    <router-link to="/">
                         View Accounts
                     </router-link>
                 </b-nav-item>
-                <b-nav-item href="#">
-                    <router-link to="add" class="nav-item">
+                <b-nav-item href="#" class="mr-5">
+                    <router-link to="add">
                         Add Accounts
+                    </router-link>
+                </b-nav-item>
+                <b-nav-form>
+                    <b-form-input size="sm" type="text" paceholder="Search" class="mr-3"/>
+                    <b-button size="sm">Search</b-button>
+                </b-nav-form>
+
+            </b-navbar-nav>
+            <b-navbar-nav class="ml-auto">
+                <b-nav-item>
+                    <router-link to="login">
+                        Login
                     </router-link>
                 </b-nav-item>
             </b-navbar-nav>
@@ -29,8 +41,8 @@
     .nav-background {
         background-color: dimgray;
     }
-    .nav-item {
-        color: aliceblue;
+    a {
+        color: inherit;
     }
 
 </style>

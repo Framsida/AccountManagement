@@ -46,7 +46,8 @@
                 <b-form-input id="account_number"
                               class="col-4"
                               type="text"
-                              v-model="account.accountNumber">
+                              v-model="account.accountNumber"
+                              readonly>
                 </b-form-input>
             </b-form-group>
             <b-button type="submit" variant="primary">Save Changes</b-button>
@@ -96,7 +97,7 @@
         methods: {
             onSubmit(event) {
                 event.preventDefault();
-                axios.post('http://localhost:8081/accounts/', this.account)
+                axios.put('http://localhost:8081/accounts/', this.account)
                     .then(response => {
                         if(response.status === 200) {
                             this.$router.push('/');
@@ -112,15 +113,14 @@
             }
         },
         mounted() {
-            
+            console.log(this.$route.params.id);
             axios
-                .get(`http://localhost:8081/accounts/${accountID}`)
+                .get(`http://localhost:8081/accounts/1001`)
                 .then(response => {
-                    this.items = response.data;
+                    this.account = response.data[0];
                 }).catch(error => {
                 console.log(error)
-            })
-        },
+            });
         }
     }
 </script>

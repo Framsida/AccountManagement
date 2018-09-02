@@ -65,6 +65,7 @@
                 .get('http://localhost:8081/accounts/all')
                 .then(response => {
                     this.items = response.data;
+                    console.log(response.data);
                 }).catch(error => {
                     console.log(error)
             })
@@ -91,7 +92,7 @@
                 console.log((accountIndex));
                 console.log(this.items[accountIndex]);
                 this.$router.push({
-                    path: '/edit/' + this.items[accountIndex].id,
+                    path: '/edit/' + this.items[accountIndex].accountNumber,
                     params: this.items[accountIndex].accountNumber
                 });
             }
