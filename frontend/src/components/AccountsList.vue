@@ -78,7 +78,6 @@
                 .then(response => {
                     this.items = response.data;
                 }).catch(error => {
-                    console.log(error)
             })
         },
         methods: {
@@ -91,7 +90,6 @@
                         }
                     })
                     .catch(error => {
-                        console.log(error)
                     })
             },
             markForDelete(index, account) {

@@ -113,7 +113,6 @@
                         }
                     })
                     .catch(error => {
-                        console.log(error)
                     });
             },
             onCancel(event) {
@@ -128,7 +127,6 @@
                 .then(response => {
                     this.account = response.data;
                 }).catch(error => {
-                console.log(error)
             });
         }
     }

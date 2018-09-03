@@ -35,15 +35,12 @@
             }
         },
         mounted() {
-            console.log(firebase.auth().currentUser)
             if(firebase.auth().currentUser) {
                 this.loggedIn = true;
             }
-            console.log(this.loggedIn);
         },
         methods: {
             logout() {
-                console.log('Logging out');
                 firebase.auth().signOut()
                     .then(() => {
                         this.$router.replace('login')
