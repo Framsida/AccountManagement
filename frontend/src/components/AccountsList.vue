@@ -1,6 +1,8 @@
 <template>
+    <div>
+        <NavBar></NavBar>
     <b-container class="mt-5">
-        <b-table hover :items="items" :fields="fields" outlined>
+        <b-table hover :items="items" :fields="fields" outlined :sort-by.sync="items.accountNumber">
             <template slot="edit" slot-scope="row">
                 <b-button size="sm" class="mr-1" variant="primary" @click="editAccount(row.index)">
                     Edit
@@ -28,18 +30,23 @@
             </div>
         </b-modal>
     </b-container>
+    </div>
 </template>
 
 <script>
     import axios from 'axios'
+    import NavBar from "./NavBar.vue";
+
     export default {
         name: "AccountsList",
+        components: {NavBar},
         data() {
             return {
                 fields: [
                     {
                         key: 'accountNumber',
-                        label: 'Account ID'
+                        label: 'Account ID',
+                        sortable: true
                     },
                     {
                         key: 'firstName',

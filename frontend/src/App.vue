@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <NavBar></NavBar>
+
         <router-view/>
     </div>
 </template>
@@ -9,6 +9,7 @@
     import AccountsList from './components/AccountsList.vue'
     import NavBar from './components/NavBar.vue'
     import AddAccount from './components/AddAccount.vue'
+
     export default {
         components: {
             AccountsList,

@@ -10,10 +10,14 @@ import firebaseConfig from './firebaseConfig.js'
 Vue.use(BootstrapVue)
 
 
+let app;
 firebase.initializeApp(firebaseConfig);
-
-new Vue({
-    el: '#app',
-    router,
-    render: h => h(App)
+firebase.auth().onAuthStateChanged(user => {
+    if(!app) {
+        app = new Vue({
+            el: '#app',
+            router,
+            render: h => h(App)
+        })
+    }
 });

@@ -17,16 +17,8 @@
 
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
-                <b-nav-item v-if="loggedIn">
+                <b-nav-item @click="logout()">
                     Sign out
-                </b-nav-item>
-                <b-nav-item v-else>
-                    <router-link to="login" class="mr-3">
-                        Login
-                    </router-link>
-                    <router-link to="register" class="mr-2">
-                        Register
-                    </router-link>
                 </b-nav-item>
             </b-navbar-nav>
         </b-collapse>
@@ -43,10 +35,20 @@
             }
         },
         mounted() {
-            if(firebase.auth.currentUser) {
+            console.log(firebase.auth().currentUser)
+            if(firebase.auth().currentUser) {
                 this.loggedIn = true;
             }
             console.log(this.loggedIn);
+        },
+        methods: {
+            logout() {
+                console.log('Logging out');
+                firebase.auth().signOut()
+                    .then(() => {
+                        this.$router.replace('login')
+                    })
+            }
         }
     }
 </script>

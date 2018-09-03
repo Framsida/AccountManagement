@@ -27,7 +27,7 @@ public class DbSeeder implements CommandLineRunner {
         //this.accountRepository.deleteAll();
 
         //Add the new accounts
-        this.accountRepository.save(jordan);
+        //this.accountRepository.save(jordan);
     }
 
 }

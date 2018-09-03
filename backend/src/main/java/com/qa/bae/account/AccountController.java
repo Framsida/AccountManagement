@@ -1,6 +1,7 @@
 package com.qa.bae.account;
 
 
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,7 +24,8 @@ public class AccountController {
 
     @GetMapping("/all")
     public List<Account> getAll() {
-        return this.accountRepository.findAll();
+        Sort sort = new Sort(Sort.Direction.ASC, "accountNumber");
+        return this.accountRepository.findAll(sort);
 
     }
 

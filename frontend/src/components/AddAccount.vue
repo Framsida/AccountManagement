@@ -1,4 +1,6 @@
 <template>
+    <div>
+        <NavBar></NavBar>
     <b-container class="mt-5">
         <b-card>
         <b-form @submit="onSubmit">
@@ -52,12 +54,15 @@
         </b-form>
         </b-card>
     </b-container>
+    </div>
 </template>
 
 <script>
     import axios from 'axios'
+    import NavBar from "./NavBar.vue";
     export default {
         name: "AddAccount",
+        components: {NavBar},
         data() {
             return {
                 account: {

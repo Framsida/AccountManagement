@@ -53,7 +53,10 @@ let router = new Router({
         {
             path:'/register',
             name: 'Register',
-            component: Register
+            component: Register,
+            meta: {
+                requireAuth: false
+            }
         }
     ]
 });
@@ -61,6 +64,9 @@ let router = new Router({
 router.beforeEach((to, from, next) => {
     let currentUser = firebase.auth().currentUser;
     let requiresAuth = to.matched.some(record => record.meta.requireAuth);
+
+    console.log(currentUser);
+    console.log(requiresAuth)
 
     if (requiresAuth && !currentUser) {
         next('login');
